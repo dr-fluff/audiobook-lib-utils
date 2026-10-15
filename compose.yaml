@@ -1,0 +1,10 @@
+services:
+  audiobook-lib:
+    build: .
+    ports:
+      - "127.0.0.1:8686:8686"
+    volumes:
+      - ./data:/data
+      - /srv/audiobooks:/library
+      - /srv/audiobook-imports:/imports:ro
+    restart: unless-stopped
